@@ -1,21 +1,30 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState } from 'react';
+import { StyleSheet, Text, View, Button } from 'react-native';
+import { getSentence } from './sentences';
 
 export default function App() {
+  const [sentence, setSentence] = useState("");
+  
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <Text>{sentence}</Text>
+      <Button
+      onPress={() => setSentence(getSentence())}
+      title="New Sentence"
+    />
+
     </View>
   );
 }
 
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#E9967A',
     alignItems: 'center',
     justifyContent: 'center',
   },
+
 });
